@@ -101,7 +101,7 @@ for song in songs:
 
 while(True):
 	try:
-		input_songs = raw_input("Enter song(s) to load (Example: 20-30 or 11, 15): ")
+		input_songs = raw_input("Enter song(s) number to load (Example: 20-30 or 11, 15 or 233): ")
 	except:
 		print ""
 		sys,exit(1)
@@ -124,10 +124,9 @@ while(True):
 		else:
 			song_id_to_load = int(input_songs) - 1
 
-			if song_id_to_load < len(songs):
+			if song_id_to_load < len(songs) and song_id_to_load >= 0:
 				vk.load_and_save(songs[song_id_to_load])
 			else:
 				print "This song doesn't exists"
-				break
 	except:
 		print "Wrong comand"
