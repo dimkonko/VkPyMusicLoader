@@ -55,3 +55,6 @@ docs/_build/
 # Downloader music
 *.mp3
 *.wav
+
+# Buf files
+.buf.txt
