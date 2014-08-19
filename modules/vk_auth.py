@@ -49,12 +49,11 @@ def auth(email, password, client_id, scope):
         return kv[0], kv[1]
 
     # Authorization form
-    def auth_user(email, password, client_id, scope, opener):
-        response = opener.open(
-            "http://oauth.vk.com/oauth/authorize?" + \
+    def auth_user(email, password, client_id, scope, opener):     
+        request = "http://oauth.vk.com/oauth/authorize?" + \
             "redirect_uri=http://oauth.vk.com/blank.html&response_type=token&" + \
             "client_id=%s&scope=%s&display=wap" % (client_id, ",".join(scope))
-            )
+        response = opener.open(request)
         doc = response.read()
         parser = FormParser()
         parser.feed(doc)
